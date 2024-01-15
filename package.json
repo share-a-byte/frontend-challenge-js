@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "e2e": "npx playwright test",
-    "lint": "npx eslint --ext .jsx,.js src --fix"
+    "lint": "npx eslint --ext .jsx,.js src --fix",
+    "prepare": "husky install" 
   },
   "eslintConfig": {
     "extends": [

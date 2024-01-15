@@ -14,7 +14,7 @@ This is a simple form submission application. The form consists of three steps.
 
 Scenario: User A is a student, so she input 0 in the income field, however, she is unable to proceed to Step 2.
 
-To reproduct:
+To reproduce:
 
 1. Go to form step 1
 2. Type any name in the name field
