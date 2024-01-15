@@ -28,6 +28,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-restricted-exports': 'off',
     'no-nested-ternary': 'off',
+    'react/jsx-filename-extension': 'off',
   },
 
 };
