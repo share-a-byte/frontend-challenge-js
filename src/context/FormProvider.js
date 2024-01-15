@@ -1,0 +1,69 @@
+import React, { createContext, useState } from "react";
+import { User } from "../class/user";
+
+const CreateProviderValue = () => {
+  const [formStep, setFormStep] = useState(1);
+  const [userData, setUserData] = useState(new User());
+  const [isLoading, setIsLoading] = useState(false);
+
+  const updateUserData = (updatedUserData) => {
+    updateFormStep(updatedUserData);
+    setUserData(updatedUserData);
+  };
+
+  const updateFormStep = (updatedUserData) => {
+    if (updatedUserData.name && updatedUserData.income) {
+      setFormStep(2);
+    }
+    if (updatedUserData.education) {
+      setFormStep(3);
+    }
+  };
+
+  const mockSaveData = async () => {
+    return new Promise((res) => setTimeout(res, 1500));
+  };
+
+  const saveAndResetData = async () => {
+    try {
+      await mockSaveData(userData);
+      // ADD THANK YOU PAGE HERE
+      setUserData(new User());
+      setFormStep(1);
+      setIsLoading(false);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const confirmForm = () => {
+    setIsLoading(true);
+    saveAndResetData();
+  };
+
+  const backToPreviousStep = () => {
+    setFormStep((prev) => prev - 1);
+  };
+
+  return {
+    formStep,
+    userData,
+    setUserData,
+    updateUserData,
+    confirmForm,
+    backToPreviousStep,
+    isLoading,
+  };
+};
+
+export const FormContext = createContext();
+
+const FormProvider = (props) => {
+  return (
+    <FormContext.Provider value={CreateProviderValue()}>
+      {props.children}
+    </FormContext.Provider>
+  );
+};
+
+export default FormProvider;
