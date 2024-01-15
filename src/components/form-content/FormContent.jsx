@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
-import { User } from "../../class/user";
-import Container from "../../layout/container";
-import Flex from "../../layout/flex";
-import Button from "../button";
-import Input from "../input";
-import * as Styled from "./styles";
+import { useEffect, useState } from 'react';
+import { User } from '../../class/user';
+import Container from '../../layout/container';
+import Flex from '../../layout/flex';
+import Button from '../button';
+import Input from '../input';
+import * as Styled from './styles';
 
-const FormContent = ({ currentStep, updateUserData, userData, confirmForm, backToPreviousStep }) => {
+function FormContent({
+  currentStep, updateUserData, userData, confirmForm, backToPreviousStep,
+}) {
   const [localData, setLocalData] = useState(userData);
 
-  useEffect(()=>{
-    setLocalData(userData)
-  },[userData])
+  useEffect(() => {
+    setLocalData(userData);
+  }, [userData]);
 
   const submitForm = () => {
     updateUserData(new User(localData));
@@ -31,16 +33,16 @@ const FormContent = ({ currentStep, updateUserData, userData, confirmForm, backT
               label="Name"
               type="text"
               placeholder="Your name"
-              onChange={(e) => updateField("name", e.target.value)}
-              value={localData.name || ""}
+              onChange={(e) => updateField('name', e.target.value)}
+              value={localData.name || ''}
               id="input-name"
             />
             <Input
               label="Annual Income in USD"
               type="text"
-              onChange={(e) => updateField("income", e.target.value)}
-              value={localData.income || ""}
-              inputLabelCaption={"[Input 0 if you are a student]"}
+              onChange={(e) => updateField('income', e.target.value)}
+              value={localData.income || ''}
+              inputLabelCaption="[Input 0 if you are a student]"
               placeholder="Your income"
               id="input-income"
             />
@@ -54,13 +56,13 @@ const FormContent = ({ currentStep, updateUserData, userData, confirmForm, backT
               label="Education Level"
               type="select"
               options={[
-                "High school or equivalent",
-                "Associate degree",
+                'High school or equivalent',
+                'Associate degree',
                 "Bachelor's degree",
                 "Master's degree or above",
-                "None of the above",
+                'None of the above',
               ]}
-              onChange={(e) => updateField("education", e.target.value)}
+              onChange={(e) => updateField('education', e.target.value)}
               value={localData.education}
               id="input-education"
             />
@@ -72,13 +74,19 @@ const FormContent = ({ currentStep, updateUserData, userData, confirmForm, backT
               <Styled.FormHeading>Confirmation</Styled.FormHeading>
               <Flex flexDirection="column" justifyContent="flex-start">
                 <Styled.LineParagraph id="confirmation-name">
-                  <span>Name</span>:<strong>{localData.name}</strong>
+                  <span>Name</span>
+                  :
+                  <strong>{localData.name}</strong>
                 </Styled.LineParagraph>
                 <Styled.LineParagraph id="confirmation-income">
-                  <span>Income</span>:<strong>{localData.income}</strong>
+                  <span>Income</span>
+                  :
+                  <strong>{localData.income}</strong>
                 </Styled.LineParagraph>
                 <Styled.LineParagraph id="confirmation-education">
-                  <span>Education</span>:<strong>{localData.education}</strong>
+                  <span>Education</span>
+                  :
+                  <strong>{localData.education}</strong>
                 </Styled.LineParagraph>
               </Flex>
               <Button onClick={backToPreviousStep} invert id="form-confirmation-back-button">Back</Button>
@@ -89,6 +97,6 @@ const FormContent = ({ currentStep, updateUserData, userData, confirmForm, backT
       </Styled.FormContentDiv>
     </Container>
   );
-};
+}
 
 export default FormContent;

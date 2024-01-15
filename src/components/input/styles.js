@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const InputWrapper = styled.div`
 display:flex;
@@ -29,7 +29,7 @@ input, select{
 
 select{
     padding:2px 8px;
-}`
+}`;
 
 export const InputDiv = styled.div`
 border: 1px solid #555;
@@ -38,4 +38,4 @@ border-radius: 12px;
 height: 45px;
 display:flex;
 align-items:center;
-`
+`;

@@ -1,1 +1,1 @@
-export { default} from './FullPageLoader'
+export { default } from './FullPageLoader';

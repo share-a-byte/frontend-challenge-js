@@ -1,14 +1,15 @@
-import convertNumber from "../utils/convertNumber";
+import convertNumber from '../utils/convertNumber';
 
+export class User {
+  name = '';
 
-export class User{
-    name = ""
-    income = 0;
-    education = ""
+  income = 0;
 
-    constructor(params){
-        this.name = params ? params.name ? params.name :  ""  : "";
-        this.income = params ? params.income ? convertNumber(params.income) : 0:0
-        this.education = params ? params.education : ""
-    }
+  education = '';
+
+  constructor(params) {
+    this.name = params ? params.name ? params.name : '' : '';
+    this.income = params ? params.income ? convertNumber(params.income) : 0 : 0;
+    this.education = params ? params.education : '';
+  }
 }

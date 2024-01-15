@@ -1,15 +1,10 @@
-import React, { createContext, useState } from "react";
-import { User } from "../class/user";
+import React, { createContext, useState } from 'react';
+import { User } from '../class/user';
 
 const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(new User());
   const [isLoading, setIsLoading] = useState(false);
-
-  const updateUserData = (updatedUserData) => {
-    updateFormStep(updatedUserData);
-    setUserData(updatedUserData);
-  };
 
   const updateFormStep = (updatedUserData) => {
     if (updatedUserData.name && updatedUserData.income) {
@@ -20,9 +15,12 @@ const CreateProviderValue = () => {
     }
   };
 
-  const mockSaveData = async () => {
-    return new Promise((res) => setTimeout(res, 1500));
+  const updateUserData = (updatedUserData) => {
+    updateFormStep(updatedUserData);
+    setUserData(updatedUserData);
   };
+
+  const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
 
   const saveAndResetData = async () => {
     try {
@@ -58,12 +56,12 @@ const CreateProviderValue = () => {
 
 export const FormContext = createContext();
 
-const FormProvider = (props) => {
+function FormProvider({ children }) {
   return (
     <FormContext.Provider value={CreateProviderValue()}>
-      {props.children}
+      {children}
     </FormContext.Provider>
   );
-};
+}
 
 export default FormProvider;

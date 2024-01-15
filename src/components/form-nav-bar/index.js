@@ -1,1 +1,1 @@
-export { default} from './FormNavBar'
+export { default } from './FormNavBar';

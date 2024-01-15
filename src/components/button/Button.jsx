@@ -1,8 +1,9 @@
-import * as Styled from './styles'
+import * as Styled from './styles';
 
-
-const Button = ({invert, children, onClick, ...props})=>{
-    return<Styled.Button onClick={onClick} $invert={invert} {...props}>{children}</Styled.Button>
+function Button({
+  invert, children, onClick, ...props
+}) {
+  return <Styled.Button onClick={onClick} $invert={invert} {...props}>{children}</Styled.Button>;
 }
 
-export default Button
+export default Button;

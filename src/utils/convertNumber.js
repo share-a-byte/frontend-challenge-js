@@ -1,6 +1,3 @@
+const convertNumber = (inputValue) => (typeof inputValue === 'string' ? parseInt(inputValue, 10) : inputValue);
 
-const convertNumber = (inputValue)=>{
-    return typeof inputValue === 'string' ? parseInt(inputValue) : inputValue
-}
-
-export default convertNumber
+export default convertNumber;
