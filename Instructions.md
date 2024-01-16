@@ -39,4 +39,12 @@ Expected Behaviour:
 
 Scenario: After adding the thank you page, E2E tests failed.
 
-Please fix E2E tests
+To reproduce:
+
+1. Run npm run start or yarn start
+2. Open a second terminal, run npm run e2e or yarn e2e
+3. E2E test fails because user has to click button in order to see the form step 1
+
+Please fix E2E tests.
+Playwright docs
+https://playwright.dev/docs/intro
