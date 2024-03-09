@@ -7,7 +7,7 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    if (updatedUserData.name && (updatedUserData.income || updatedUserData.income === 0)) {
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -30,11 +30,15 @@ const CreateProviderValue = () => {
       setFormStep(1);
       setIsLoading(false);
     } catch (e) {
-      console.error(e);
+      // console.error(e);
     }
   };
 
   const confirmForm = () => {
+    setFormStep(4);
+  };
+
+  const finalConfirmation = () => {
     setIsLoading(true);
     saveAndResetData();
   };
@@ -49,6 +53,7 @@ const CreateProviderValue = () => {
     setUserData,
     updateUserData,
     confirmForm,
+    finalConfirmation,
     backToPreviousStep,
     isLoading,
   };
