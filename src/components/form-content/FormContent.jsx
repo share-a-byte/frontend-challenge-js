@@ -8,7 +8,7 @@ import * as Styled from './styles';
 import Confirm from '../confirm';
 
 function FormContent({
-  currentStep, updateUserData, userData, confirmForm, backToPreviousStep, finalConfirmation,
+  currentStep, updateUserData, userData, finalConfirmation, confirmForm, backToPreviousStep,
 }) {
   const [localData, setLocalData] = useState(userData);
 
@@ -94,9 +94,9 @@ function FormContent({
           </Flex>
         ) : (
           currentStep === 4 && (
-            <Flex flexDirection="column" id="confirmation-page">
+            <Flex flexDirection="column" alignItems="center" id="confirmation-page">
               <Confirm name={localData.name} />
-              <Button onClick={finalConfirmation} id="form-confirmation-button">Submit Another</Button>
+              <Button onClick={finalConfirmation} id="reset-form">Submit Another</Button>
             </Flex>
           ))}
       </Styled.FormContentDiv>

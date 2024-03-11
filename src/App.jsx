@@ -11,6 +11,7 @@ function App() {
     userData,
     updateUserData,
     confirmForm,
+    finalConfirmation,
     backToPreviousStep,
     isLoading,
   } = useContext(FormContext);
@@ -25,6 +26,7 @@ function App() {
         userData={userData}
         confirmForm={confirmForm}
         backToPreviousStep={backToPreviousStep}
+        finalConfirmation={finalConfirmation}
       />
     </div>
   );
