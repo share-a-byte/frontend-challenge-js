@@ -35,12 +35,10 @@ const CreateProviderValue = () => {
   };
 
   const confirmForm = () => {
-    console.log('got here');
     setFormStep(4);
   };
 
   const finalConfirmation = () => {
-    console.log('hello');
     setIsLoading(true);
     saveAndResetData();
   };
